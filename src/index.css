@@ -1,0 +1,17 @@
+@import "tailwindcss";
+
+/* ダークモード: .dark クラスによる手動切り替えを有効化 */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    color-scheme: light dark;
+  }
+
+  /* システム設定がダークの場合、初期状態でダークを適用 */
+  @media (prefers-color-scheme: dark) {
+    html:not(.light) {
+      color-scheme: dark;
+    }
+  }
+}
